@@ -14,6 +14,14 @@ def pomiarczasu(funkcja):
         print(f'czas wykonania funkcji: {wynik[0]} s')
     return wrapper
 
+
+def sleepdec(funkcja):
+    def wrapper(*args):
+        time.sleep(3)
+        return funkcja(*args)
+    return wrapper
+
+@sleepdec
 @pomiarczasu
 def big_nb():
     sum([i**2 for i in range(10_000_000)])
