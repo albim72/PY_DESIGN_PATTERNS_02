@@ -49,3 +49,34 @@ print(rejestracja(1))
 print(rejestracja(44))
 print(rejestracja(0))
 
+#przykład 4 - prosty dekorator
+
+def startstop(funkcja):
+    def wrapper(*args):
+        print("uruchamianie nowej funkcji...")
+        funkcja(*args)
+        print("działanie funkcji zakończone!")
+        print("_"*34)
+    return wrapper
+
+
+def zawijanie(czego):
+    print(f'zawijanie {czego} w sreberka')
+
+zw = startstop(zawijanie)
+zw("czekoladek")
+zawijanie("cukierków")
+
+@startstop
+def dmuchanie(czego):
+    print(f'dmuchanie {czego} na torcie urodzinowym')
+
+@startstop
+def fx(e,f):
+    print(f'wynik = {e-f*2}')
+
+
+dmuchanie("świeczek")
+
+fx(4,3)
+
