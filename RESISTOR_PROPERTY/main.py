@@ -29,10 +29,14 @@ print(f'napięcie prądu: {r2.voltage} V')
 print(f'natężenie prądu: {r2.current} A')
 
 print("______________ klasa BoundedResistance _________________")
-r3 = BoundedResistance(-1.4E2)
+r3 = BoundedResistance(1.4E2)
 try:
       # print(r3.ohms)
       # r3.ohms = 0
       print(f'oporność: {r3.ohms} omów')
+      print(f'double: {r3.doubleohms}')
+      r3.koloropornika = "zielony"
+      print(f'kolor: {r3.koloropornika}')
+
 except ValueError as dd:
       print(dd)
