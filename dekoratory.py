@@ -27,3 +27,25 @@ def big_nb():
     sum([i**2 for i in range(10_000_000)])
 
 big_nb()
+
+@sleepdec
+def info(k):
+    return 9*k
+
+
+
+print(info(451))
+
+#przykład 2
+
+def debug(funkcja):
+    def wrapper(*args,**kwargs):
+        print(f'wołana funkcja to: {funkcja.__name__}')
+        funkcja(*args)
+    return wrapper
+
+@debug
+def kody(k):
+    print(f'kod nr 5: {k}')
+
+kody(22567)
