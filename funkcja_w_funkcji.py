@@ -26,3 +26,26 @@ print(parzyste)
 cube = list(map(lambda x:x**3,liczba))
 print(cube)
 
+#przykład 3 - funkcje wewnętrzne
+
+def rejestracja(oplata):
+    def lista_zawodnikow(nrlisty):
+        return f"jesteś na liście zawodników nr {nrlisty}"
+
+    def brak():
+        return "brak wpłaty, uzupełnij w ciągu 3 dni"
+
+    def error():
+        return "błąd księgowania wpłaty![1- wpłata, 0-brak, inna wartość - błąd!]"
+
+    if oplata == 1:
+        return lista_zawodnikow(453)
+    elif oplata == 0:
+        return brak()
+    else:
+        return error()
+
+print(rejestracja(1))
+print(rejestracja(44))
+print(rejestracja(0))
+
