@@ -1,0 +1,49 @@
+#przykład 1
+def liczby():
+    for i in range(17):
+        yield i*3
+
+print(liczby())
+for p in liczby():
+    print(p)
+
+
+#przykład 2
+def wznowienie(n,k):
+    print("watrzymanie działania 1")
+    yield 1001
+    print("wznowienie działania 1")
+
+    print("watrzymanie działania 2")
+    yield n+k
+    print("wznowienie działania 2")
+
+    print("watrzymanie działania 3")
+    yield n-k
+    print("wznowienie działania 3")
+
+    print("watrzymanie działania 4")
+    yield n*k
+    print("wznowienie działania 4")
+
+    print("watrzymanie działania 5")
+    yield n**k
+    print("wznowienie działania 5")
+
+print(wznowienie(8,9))
+
+for i in wznowienie(9,3):
+    print("_"*20)
+    print(f'zwrócono wartość: {i}')
+
+#przykład 3
+def genret():
+    for i in range(72):
+        if i==13:
+            print("przerywamy....")
+            return
+        else:
+            yield i
+
+for t in genret():
+    print(t)
