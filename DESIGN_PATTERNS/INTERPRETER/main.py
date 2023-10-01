@@ -46,8 +46,8 @@ class Aircondition:
     def turn_off(self):
         print('turning off the air condition')
         self.is_on = False
-        
-        
+
+
 class Heating:
     def __init__(self):
         self.is_on = False
@@ -62,3 +62,19 @@ class Heating:
     def turn_off(self):
         print('turning off the air heating')
         self.is_on = False
+
+
+class Boiler:
+    def __init__(self):
+        self.temperature = 47
+
+    def __str__(self):
+        return f'boiler temeprature: {self.temperature} C'
+    
+    def increase_temperature(self,amount):
+        print(f"increasing the boiler's temperature by {amount} degrees")
+        self.temperature += amount
+        
+    def decrease_temperature(self,amount):
+        print(f"decreasing the boiler's temperature by {amount} degrees")
+        self.temperature -= amount
