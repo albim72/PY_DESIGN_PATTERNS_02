@@ -105,7 +105,7 @@ class Waiter:
     @property
     def pizza(self):
         return self.builder.pizza
-    
+
 def validate_style(builders):
     try:
         input_msg = 'What pizza would You like? [m]argarita or [c]reamy bacon?'
@@ -117,5 +117,20 @@ def validate_style(builders):
     return (True,builder)
 
 
+def main():
+    builders = dict(m=MargaritaBuilder, c=CreamyBaconBuilder)
+    valid_input = False
+    while not valid_input:
+        valid_input, builder = validate_style(builders)
+        if valid_input  == False:
+            print(builder)
+    print("\n")
+    waiter = Waiter()
+    waiter.construct_pizza(builder)
+    pizza = waiter.pizza
+    print("\n")
+    print(f"Enjoy your {pizza}!")
 
-    
+
+if __name__ == '__main__':
+    main()
