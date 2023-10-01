@@ -10,18 +10,31 @@ class FileWriterUtility:
 
     def write(self,string):
         self.content += string
-        
+
     def save(self):
         return Memento(self.file,self.content)
-    
+
     def undo(self,memento):
         self.content = memento.content
-        
+
 
 class FileWriterCaretaker:
     def save(self,writer):
         self.obj = writer.save()
-        
+
     def undo(self,writer):
         writer.undo(self.obj)
-        
+
+if __name__ == '__main__':
+    caretaker = FileWriterCaretaker()
+    writer = FileWriterUtility("info.txt")
+    writer.write("Pierwsza odsłona pliku info.txt \n")
+    print(writer.content + "\n")
+    caretaker.save(writer)
+
+    writer.write("Druga wersja pliku... \n")
+    print(writer.content + "\n")
+
+    caretaker.undo(writer)
+    print(writer.content + "\n")
+
