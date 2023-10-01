@@ -138,4 +138,14 @@ def main():
         'fridge temperature': fridge.decrease_temperature
     }
     
+    for t in tests:
+        if len(event.parseString(t)) == 2:
+            cmd,dev = event.parseString(t)
+            cmd_str,dev_str = ' '.join(cmd), ' '.join(dev)
+            if 'open' in cmd_str or 'turn_on' in cmd_str:
+                open_actions[dev_str]()
+            elif 'close' in cmd_str or 'turn off' in cmd_str
+                close_actions[dev_str]()
+        
+
 
