@@ -17,7 +17,7 @@ def brak(self):
 class SednoOdpowiedzi(type):
     def __init__(cls,clsname,bases,attrs):
         if required:
-            if clsname == "Kopernik":
+            if attrs.get('n'):
                 cls.odpowiedz = new_odpowiedz
             else:
                 cls.odpowiedz = odpowiedz
@@ -34,10 +34,10 @@ class SwTomasz(metaclass=SednoOdpowiedzi):
     pass
 
 class Kopernik(metaclass=SednoOdpowiedzi):
-    pass
+    n = True
 
 class Enstein(metaclass=SednoOdpowiedzi):
-    pass
+    n = True
 
 fil1 = Arystoteles()
 print(f'Filozof {fil1.__class__.__name__} twierdzi: {fil1.odpowiedz()}')
